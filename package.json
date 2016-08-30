@@ -1,0 +1,32 @@
+{
+  "name": "missed_connections2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thayer11/missed_connections2.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thayer11/missed_connections2/issues"
+  },
+  "homepage": "https://github.com/thayer11/missed_connections2#readme",
+  "dependencies": {
+    "angular": "^1.5.8",
+    "body-parser": "^1.15.2",
+    "cookie": "^0.3.1",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.14.0",
+    "express-session": "^1.14.1",
+    "mongoose": "^4.5.10",
+    "parser": "^0.1.4",
+    "passport": "^0.3.2",
+    "passport-facebook": "^2.1.1"
+  }
+}
