@@ -7,7 +7,7 @@ var bodyParser       = require('body-parser');
 //for passport facebook auth
 var User             = require('./back_end/models/user.js');
 //var Message          similar to above
-// var db               = require('./models');
+var db               = require('./back_end/models/message.js');
 var passport         = require('passport');
 var cookieParser     = require('cookie-parser');
 var FacebookStrategy = require ('passport-facebook').Strategy;
@@ -25,9 +25,7 @@ app.use(express.static('./front_end/public')); //this serves up the public folde
 var mongoose = require('mongoose');
 mongoose.connect("mongodb://localhost:27017/missed_connections2");
 
-//routes setup
-var routes = require('./back_end/routes/routes');
-app.use(routes);
+
 
 //Auth 
 
@@ -93,7 +91,9 @@ app.get('/api/profile', function (req, res) {
   });
 });
 
-
+//routes setup
+var routes = require('./back_end/routes/routes');
+app.use(routes);
 
 //facebook routes
 

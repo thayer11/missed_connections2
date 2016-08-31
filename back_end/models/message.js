@@ -1,7 +1,8 @@
 var mongoose = require('mongoose');
 
-var messageSchema = new mongoose.Schema({ 
-	content : String 
+
+var MessageSchema = new mongoose.Schema({ 
+	content : String, 
 	location : {
 		name : String,
 		address : String

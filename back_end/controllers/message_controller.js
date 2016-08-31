@@ -1,5 +1,4 @@
-var mongoose = require('mongoose');
-var Message = mongoose.model('Message');
+var Message = require('../models/message.js')
 
 module.exports.messagesAddOne = function(req, res) {
     console.log(req.body)
@@ -16,10 +15,36 @@ module.exports.messagesAddOne = function(req, res) {
                   .status(400)
                   .json(err);
             } else {
-                console.log("Message created", message);
+                console.log("Message created", messages);
                 res
                   .status(201)
-                  .json(message);
+                  .json(messages);
             }
         });
 };
+
+module.exports.messagesGetAll = function(req, res){
+    console.log("GET the messages");
+    console.log(req.query);
+
+  var offset = 0;
+  var count = 5;
+
+  if (req.query && req.query.offset){
+    offset = parseInt(req.query.offset, 10);
+  }
+
+  if (req.query && req.query.count){
+    count = parseInt(req.query.count, 10);
+  }
+
+Message
+  .find()
+  .skip(offset)
+  // .limit(count)
+  .exec(function(err, messages){
+    console.log("Found messages", messages.length);
+    res
+      .json(messages);
+  });
+}

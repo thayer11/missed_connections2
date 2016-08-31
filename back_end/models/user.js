@@ -1,5 +1,9 @@
 var mongoose = require('mongoose');
-var UserSchema = mongoose.Schema({
+Message = require('./message.js'),
+MessageSchema = mongoose.model('Message').schema,
+
+
+UserSchema = mongoose.Schema({
 	facebook: {
         id: Number,
         token: String,
@@ -7,5 +11,7 @@ var UserSchema = mongoose.Schema({
         name: String,
         photos: String,
     },
+    	messages : [MessageSchema]
 });
+
 module.exports = mongoose.model('User', UserSchema);

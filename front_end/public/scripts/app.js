@@ -1,5 +1,7 @@
 var app = angular.module('missedconnections', ['ngRoute',])
-	.controller('ProfileController', ProfileController);
+	.controller('ProfileController', ProfileController)
+    .controller('MessagesIndexController', MessagesIndexController)
+    .controller('MessagesPostController', MessagesPostController)
 
 console.log("angular is good");
 
@@ -15,10 +17,14 @@ app.config(function($routeProvider, $httpProvider){
     controller: 'ProfileController',
    	})
     .when('/messages', {
-    templateUrl: '/views/messages.html',
-    controller: 'MessagesIndexController',
+    templateUrl: '/views/messagePost.html',
+    controller: 'MessagesPostController',
     })
+    .when('/messages/index',{
+    templateUrl: '/views/messageIndex.html',
+    controller: 'MessagesIndexController', 
     })
+})
 
 ProfileController.$inject = ['$scope','$http'];
 	function ProfileController($scope, $http){
@@ -29,16 +35,26 @@ ProfileController.$inject = ['$scope','$http'];
     });
 }
 
-MessagesIndexController.$inject = ['$scope','$http'];
-    function MessagesIndexController($scope, $http){
+MessagesPostController.$inject = ['$scope','$http'];
+    function MessagesPostController($scope, $http){
+        $scope.newMessage={};
         $scope.saveMessage = function() {
-            $http.post('/api/messages', {test: 'This is thest data'})
+            $http.post('/api/messages', $scope.newMessage)
             .then(function(response){
                 console.log(response)
             })
         } 
 }
 
+MessagesIndexController.$inject = ['$scope','$http'];
+    function MessagesIndexController($scope, $http){
+        $http.get('/api/messages')
+        .then(function(response){
+            console.log(response)
+            $scope.messages = response.data; 
+            console.log($scope.messages);
+    });
+}
  
 
 
