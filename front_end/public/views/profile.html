@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
 <body>
-	<div class="row">
+	<div class="row" ng-controller="ProfileController">
 		<div class="col-md-4 profile">
-			<h3>Kyle Gibbons</h3>
+			<div class="profile-header">
+				<h1 class="profile-welcome col-md-4 offset-sm-4">Welcome {{user.facebook.name}}!</h1>
+					<img class="profile-img" ng-src="{{user.facebook.photos}}">
+			</div>
 		</div>
-
-		<div class="col-md-8 information">
-			<h1>Kyle Gibbons Information</h1>
-		</div>
+	<a href='/#/messages' class= "btn btn-primary">Send a Message</a>
 	</div>
 <footer>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>

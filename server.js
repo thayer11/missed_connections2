@@ -6,6 +6,7 @@ var port             = process.env.PORT || 3000;
 var bodyParser       = require('body-parser');
 //for passport facebook auth
 var User             = require('./back_end/models/user.js');
+//var Message          similar to above
 // var db               = require('./models');
 var passport         = require('passport');
 var cookieParser     = require('cookie-parser');
@@ -84,6 +85,15 @@ passport.deserializeUser(function(id, done) {
 });
 
 //back_end routes
+
+app.get('/api/profile', function (req, res) {
+  var session = req.session;
+  User.findById(session.passport.user, function (err, user) {
+     res.json(user);   
+  });
+});
+
+
 
 //facebook routes
 
