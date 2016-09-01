@@ -1,5 +1,5 @@
-var User = require('../models/user');
+// var User = require('../models/user');
 
-module.exports = {
-  //getAll: getAll,
-};
+// module.exports = {
+//   //getAll: getAll,
+// };

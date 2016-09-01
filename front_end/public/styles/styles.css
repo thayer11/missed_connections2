@@ -1,10 +1,166 @@
-.profile{
-	background: rgba(123, 124, 142, .7);
-	height: 400px;
-	padding: 15px;
+html, body {
+	font-family: 'Space Mono', monospace;
+	padding: 40px 0;
+	color: #424242;
 }
-.information{
-	background: rgba(123, 124, 142, .7);
-	height: 400px;
-	padding: 15px;
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'Cousine', monospace;
+}
+
+hr {
+	border: 0;
+    border-bottom: 1px dashed black;
+    margin: 20px 0;
+    width: 100%;
+
+}
+h1 {
+	font-size: 1.2em;
+    line-height: 30px;
+    padding: 20px 0;
+}
+
+.logo {
+    width: 100px;
+    height: 22px;
+    border: none;
+    margin-bottom: 50px;
+
+}
+.funny_logo {
+	width: 100px;
+    height: 83px;
+    margin-top: 80px;
+}
+
+a {
+	text-decoration: underline;
+
+}
+
+#messages {
+
+}
+#messages h3 {
+	color: #121212;
+	font-size: 1.25em;
+	font-family: Space Mono,monaco,Consolas,Lucida Console,monospace;
+    line-height: 1.5;
+    font-weight: 800;
+}
+
+#messages p {
+	color: #424242;
+    font-family: Space Mono,monaco,Consolas,Lucida Console,monospace;
+    line-height: 1.5;
+    padding-right: 500px;
+    padding-bottom: 50px;
+}
+#messages .another_logo {
+	background-color: #121212;
+    border-radius: 50%;
+    height: 4em;
+    position: relative;
+    width: 4em;
+    margin-bottom: 4em;
+}
+#messages .another_logo:after {
+	content: 'hc';
+    color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+}
+
+#messages ul {
+	list-style-position: inside;
+    list-style-type: disc;
+
+    margin-bottom: 4rem;
+    margin-top: 0;
+}
+#messages ul li {
+	margin-bottom: .5rem;
+}
+#messages ul li hr {
+	width: 53%;
+}
+
+#messages ul li p {
+	padding-bottom: 0;
+}
+#messages ul li .nested_list {
+	list-style: none;
+}
+
+
+
+#profile {
+
+}
+#profile h3 {
+	color: #121212;
+	font-size: 1.25em;
+	font-family: Space Mono,monaco,Consolas,Lucida Console,monospace;
+    line-height: 1.5;
+    font-weight: 800;
+}
+
+#profile p {
+	color: #424242;
+    font-family: Space Mono,monaco,Consolas,Lucida Console,monospace;
+    line-height: 1.5;
+    padding-right: 500px;
+    padding-bottom: 10px;
+}
+#profile .profile_link {
+	text-decoration: none;
+}
+#profile .another_logo {
+	background-color: #121212;
+    border-radius: 50%;
+    height: 4em;
+    position: relative;
+    width: 4em;
+    margin-bottom: 4em;
+}
+#profile .another_logo:after {
+	content: 'hc';
+    color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+}
+
+
+#message_post h1 {
+	padding: 0;
+}
+#message_post hr {
+	margin: 0;
+	width: 48%;
+}
+#message_post form {
+	padding: 50px 0;
+}
+#message_post input {
+	border: none;
+	border-bottom: 1px dashed black;
+	width: 250px;
+
+}
+#message_post button {
+	outline: none;
+	border: none;
+	color: #337ab7;
+	background: transparent;
+	padding: 0;
+	margin: 0;
+	font-size: 1em;
+
 }
