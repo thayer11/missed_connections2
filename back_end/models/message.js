@@ -1,12 +1,14 @@
 var mongoose = require('mongoose');
 
 
-var MessageSchema = new mongoose.Schema({ 
+MessageSchema = new mongoose.Schema({ 
 	content : String, 
 	location : {
 		name : String,
 		address : String
 	}
+	 creator : { type: Number, ref: 'User' },
+	 responder : { type: Number, ref: 'User' }
 });
 
 module.exports = mongoose.model('Message', MessageSchema);

@@ -1,11 +1,3 @@
-// var express = require('express'),
-//     router = express.Router(),
-//     bodyParser = require('body-parser');
-
-// var UsersController = require('../controllers/usersController');
-
-// module.exports = router; 
-
 var express = require('express');
 var router = express.Router();
 
@@ -16,4 +8,4 @@ router
 .get(ctrlMessages.messagesGetAll)
 .post(ctrlMessages.messagesAddOne);
 
-module.exports = router;
+module.exports = router

@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 Message = require('./message.js'),
-MessageSchema = mongoose.model('Message').schema,
+// MessageSchema = mongoose.model('Message').schema,
 
 
 UserSchema = mongoose.Schema({
@@ -11,7 +11,7 @@ UserSchema = mongoose.Schema({
         name: String,
         photos: String,
     },
-    	messages : [MessageSchema]
+    	messages : [{ type: Schema.Types.ObjectId, ref: 'Message' }]
 });
 
 module.exports = mongoose.model('User', UserSchema);
