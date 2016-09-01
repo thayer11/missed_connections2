@@ -23,8 +23,7 @@ app.use(express.static('./front_end/public')); //this serves up the public folde
 // });
 //database
 var mongoose = require('mongoose');
-mongoose.connect(process.env.MONGODB_URI ||
-  "mongodb://localhost:27017/missed_connections2");
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/missed_connections2");
 
 
 
