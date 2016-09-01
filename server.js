@@ -1,5 +1,6 @@
 'use strict'
 
+require ("dotenv").config();
 var express          = require('express');
 var app              = express();
 var port             = process.env.PORT || 3000;
@@ -32,7 +33,7 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/missed_co
 passport.use(new FacebookStrategy({
     clientID: '732111356929298',
     clientSecret: 'cdf230ff2a1e8ca4c34501be4ffcd878',
-    callbackURL: "http://localhost:3000/login/facebook/callback",
+    callbackURL: process.env.Charles,
     profileFields: ['id', 'displayName', 'email', 'picture.type(large)']
   },
   function(accessToken, refreshToken, profile, done) {
