@@ -42,6 +42,7 @@ MessagesPostController.$inject = ['$scope','$http'];
             $http.post('/api/messages', $scope.newMessage)
             .then(function(response){
                 console.log(response)
+            window.location = "#/messages/index"
             })
         } 
 }
@@ -51,7 +52,7 @@ MessagesIndexController.$inject = ['$scope','$http'];
         $http.get('/api/messages')
         .then(function(response){
             console.log(response)
-            $scope.messages = response.data; 
+            $scope.messages = response.data.reverse(); 
             console.log($scope.messages);
     });
 }

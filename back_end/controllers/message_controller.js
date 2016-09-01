@@ -41,10 +41,11 @@ module.exports.messagesGetAll = function(req, res){
 Message
   .find()
   .skip(offset)
-  // .limit(count)
+  //.limit(count)
   .exec(function(err, messages){
     console.log("Found messages", messages.length);
     res
       .json(messages);
   });
 }
+
