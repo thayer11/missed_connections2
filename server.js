@@ -12,10 +12,7 @@ var db               = require('./back_end/models/message.js');
 var passport         = require('passport');
 var cookieParser     = require('cookie-parser');
 var FacebookStrategy = require ('passport-facebook').Strategy;
-// app.use(bodyParser());
-// body parser commented out because used in auth
-// app.use(bodyParser.json());
-// app.use(bodyParser.urlencoded({extended:true}));
+
 //use public frontend
 app.use(express.static('./front_end/public')); //this serves up the public folder into the root directory
 
@@ -33,7 +30,7 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/missed_co
 passport.use(new FacebookStrategy({
     clientID: '732111356929298',
     clientSecret: 'cdf230ff2a1e8ca4c34501be4ffcd878',
-    callbackURL: process.env.Charles,
+    callbackURL: process.env.CHARLES,
     profileFields: ['id', 'displayName', 'email', 'picture.type(large)']
   },
   function(accessToken, refreshToken, profile, done) {
