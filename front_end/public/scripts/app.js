@@ -2,6 +2,8 @@ var app = angular.module('missedconnections', ['ngRoute',])
 	.controller('ProfileController', ProfileController)
     .controller('MessagesIndexController', MessagesIndexController)
     .controller('MessagesPostController', MessagesPostController)
+    .controller('ResponsePostController', ResponsePostController)
+    .controller('ResponseIndexController', ResponseIndexController);
 
 console.log("angular is good");
 
@@ -24,6 +26,15 @@ app.config(function($routeProvider, $httpProvider){
     templateUrl: '/views/messageIndex.html',
     controller: 'MessagesIndexController', 
     })
+    .when('/messages/index',{
+    templateUrl: '/views/messageIndex.html',
+    controller: 'ResponsePostController',
+    })
+    // .when('/profile',{
+    // templateUrl: '/views/profile.html',
+    // controller: 'ResponseIndexController',
+    // })
+
 })
 
 ProfileController.$inject = ['$scope','$http'];
@@ -54,6 +65,32 @@ MessagesIndexController.$inject = ['$scope','$http'];
             console.log(response)
             $scope.messages = response.data.reverse(); 
             console.log($scope.messages);
+    });
+}
+
+ResponsePostController.$inject = ['$scope','$http'];
+    function ResponsePostController($scope, $http){
+        $scope.newResponse={};
+        $scope.saveResponse = function(message) {
+            $scope.newResponse.responded_to = message;
+            console.log('message is: ');
+            console.dir(message);
+            $http.post('/api/response', $scope.newResponse)
+            .then(function(response){
+                console.log(response)
+            window.location = "#/profile"
+            })
+        } 
+}
+
+ResponseIndexController.$inject = ['$scope','$http'];
+    function ResponseIndexController($scope, $http){
+        console.log("ResponseIndexController");
+        $http.get('/api/response')
+        .then(function(response){
+            console.log(response)
+            $scope.responses = response.data.reverse(); 
+            console.log($scope.responses);
     });
 }
  

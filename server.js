@@ -83,8 +83,8 @@ passport.deserializeUser(function(id, done) {
 
 app.get('/api/profile', function (req, res) {
   var session = req.session;
-  User.findById(session.passport.user, function (err, user) {
-     res.json(user);   
+  User.findById(session.passport.user).populate("messages").exec(function (err, user) {
+     res.json(user);         
   });
 });
 
@@ -101,6 +101,13 @@ app.get('/login/facebook/callback', passport.authenticate('facebook', {
   successRedirect: '/#/profile',
   failureRedirect: '/',
 })); 
+
+// facebook logout route
+app.get('/logout', function(req, res){
+  console.log("You still suck");
+  // req.logout();
+  res.redirect('/#/');
+});
 
 // start server
 

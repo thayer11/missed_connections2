@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
-Message = require('./message.js'),
+var Schema   = mongoose.Schema;
+var Message  = require('./message.js'),
 // MessageSchema = mongoose.model('Message').schema,
 
 

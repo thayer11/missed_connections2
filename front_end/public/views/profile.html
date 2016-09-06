@@ -1,4 +1,4 @@
-<section id="profile" ng-controller="ProfileController">
+<section id="profile" >
   <div class="container">
     <div class="row">
       <div class="col-md-12">
@@ -7,6 +7,12 @@
         <h3>.Hello {{user.facebook.name}}</h3> 
         <p>Hi. I'm Holly. I'm moderately cool on weekdays when I am hard at work stacking meagre amounts of paper to be used for travel and outdoor adventures. I'm a poet turned web developer, a dreamer, a negative optimist, and at times a real pain in the ass. Sounds good huh? Looking for nothing, open to anything.</p>
         <a href='/#/messages' class="profile_link">Send a Message</a>
+        <a href='/logout' class="profile_logout">Logout</a>
+        <div class="responses" ng-controller="ResponseIndexController">
+          <div ng-repeat="Message in user.messages">{{Message.content}}
+            <div ng-repeat="Response in Message.responses">{{Response.content}}</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

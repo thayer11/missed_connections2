@@ -25,9 +25,19 @@
                   <p>
                     Message: {{Message.content}}
                   </p>
+                 
                   <hr>
                 </li>
               </ul>
+               <p>
+                    <form ng-controller="ResponsePostController", ng-submit="saveResponse(Message)" class="">
+                      <div class="form-group">
+                        <label for="location" class="">Was it you?: </label>
+                        <input type="text" name="response" id="responseRegister" placeholder="Send a response." class="" ng-model="newResponse.content">
+                      </div>
+                      </form>
+                </p>
+                <!-- <p>{{Message.responses[0].content}}</p> -->
           </li>
         </ul>
       </div>
