@@ -16,6 +16,7 @@
 
         <ul ng-controller="MessagesIndexController">
           <li ng-repeat="Message in messages">
+            <p></p>
             <p>
               <b>Location Name</b>: {{Message.location.name}} <b>Address</b>: {{Message.location.address}}
             </p>
@@ -31,7 +32,7 @@
               </ul>
                <p>
                     <form ng-controller="ResponsePostController", ng-submit="saveResponse(Message)" class="">
-                      <div class="form-group">
+                      <div class="form-group" id="replyform">
                         <label for="location" class="">Was it you?: </label>
                         <input type="text" name="response" id="responseRegister" placeholder="Send a response." class="" ng-model="newResponse.content">
                       </div>
