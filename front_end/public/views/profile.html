@@ -1,15 +1,32 @@
-<section id="profile" ng-controller="ProfileController">
+<section id="profile" >
   <div class="container">
     <div class="row">
       <div class="col-md-12">
         <div class="another_logo"></div>
         <img class="img-responsive img-rounded" ng-src="{{user.facebook.photos}}">
         <h3>.Hello {{user.facebook.name}}</h3> 
+<<<<<<< HEAD
         <p>Hi, I'm Holly. I'm moderately fun on the weekdays when I'm hard at work stacking meagre amounts of money so I can spend time in tents and seedy hostels. I'm a poet turned computer programmer, a negative optimistic, and oftentimes a real pain in the ass. Sounds good huh? Looking for nothing, open to anything. (adventures you perv) </p>
+=======
+        <p></p>
+        <p>Welcome to Missed Connections. So you missed someone who interested you and heard from a friend that there is this really cool website that will help you find them.</p>
+>>>>>>> styles
         <a href='/#/messages' class="profile_link">Send a Message</a>
+        <a href='/logout' class="profile_logout">Logout</a>
+        <p></p>
+        <div id= class="responses" ng-controller="ResponseIndexController">
+        <div ng-repeat="Message in user.messages"><b>Your Post</b>
+            <ul><p>{{Message.content}}</p></ul>
+            <div ng-repeat="Response in Message.responses"><b>Good News! Someone Responded!</b><ul>
+            <p>{{Response.content}}</p></div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 
 </section>
+<<<<<<< HEAD
 
+=======
+>>>>>>> styles

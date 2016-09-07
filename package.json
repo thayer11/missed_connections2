@@ -20,6 +20,7 @@
   "homepage": "https://github.com/thayer11/missed_connections2#readme",
   "dependencies": {
     "angular": "^1.5.8",
+    "bluebird": "^3.4.6",
     "body-parser": "^1.15.2",
     "cookie": "^0.3.1",
     "cookie-parser": "^1.4.3",

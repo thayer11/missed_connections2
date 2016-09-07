@@ -14,12 +14,12 @@ var cookieParser     = require('cookie-parser');
 var FacebookStrategy = require ('passport-facebook').Strategy;
 
 //use public frontend
+
 app.use(express.static('./front_end/public')); //this serves up the public folder into the root directory
 
-// app.get('/', function(req, res) { //since we’re doing the app.use express static above, this doesn’t do anything, so that’s why I’ve commented it out.  Serving up the index.html into the root folder means that’s going to default to what is shown at the root url
-// res.send("You're Home!");
-// });
+
 //database
+
 var mongoose = require('mongoose');
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/missed_connections2");
 
@@ -84,12 +84,13 @@ passport.deserializeUser(function(id, done) {
 
 app.get('/api/profile', function (req, res) {
   var session = req.session;
-  User.findById(session.passport.user, function (err, user) {
-     res.json(user);   
+  User.findById(session.passport.user).populate("messages").exec(function (err, user) {
+     res.json(user);         
   });
 });
 
 //routes setup
+
 var routes = require('./back_end/routes/routes');
 app.use(routes);
 
@@ -102,7 +103,15 @@ app.get('/login/facebook/callback', passport.authenticate('facebook', {
   failureRedirect: '/',
 })); 
 
+// facebook logout route
+app.get('/logout', function(req, res){
+  console.log("You still suck");
+  // req.logout();
+  res.redirect('/#/');
+});
+
 // start server
+
 app.listen(port, function() {
   console.log('Server started on', port); 
 });   

@@ -4,7 +4,11 @@
       <div class="col-md-12">
         <div class="another_logo"></div>
         <h3>.Hello</h3> 
+<<<<<<< HEAD
         <p>Eveyone is busy and dating apps suck. Missed connections gives you another chance to strike up a conversation with that really cool person you were about to talk to before your bus pulled up. Post here and see what happens.</p>
+=======
+        <p>Everyone's busy and dating apps suck. If you missed someone who you might want to have a conversation with send them a message.</p>
+>>>>>>> styles
       </div>
     </div>
   </div>
@@ -16,6 +20,7 @@
 
         <ul ng-controller="MessagesIndexController">
           <li ng-repeat="Message in messages">
+            <p></p>
             <p>
               <b>Location Name</b>: {{Message.location.name}} <b>Address</b>: {{Message.location.address}}
             </p>
@@ -25,37 +30,21 @@
                   <p>
                     Message: {{Message.content}}
                   </p>
+                 
                   <hr>
                 </li>
               </ul>
-          </li>
+               <p>
+                    <form ng-controller="ResponsePostController", ng-submit="saveResponse(Message)" class="">
+                      <div class="form-group" id="replyform">
+                        <label for="location" class="">Was it you?: </label>
+                        <input type="text" name="response" id="responseRegister" placeholder="Send a response." class="" ng-model="newResponse.content">
+                      </div>
+                      </form>
+                </p>
+              </li>
         </ul>
       </div>
     </div>
   </div>
 </section>
-
-
-
-
-
-
-
-
-
-
-
-<!-- <div class="row" id="grid-row1" >
-        <div class="col-md-2" id="a" data-id=0 >
-        <h2 id="message-location"></h2>  
-        <h2 id="message-location"></h2> 
-        <p class="message-description">""</p>
-        </div>
-        <div class="col-md-2" id="b" data-id=1></div>
-        <div class="col-md-2" id="c" data-id=2></div>
-        <div class="col-md-2" id="d" data-id=3></div>
-        <div class="col-md-2" id="e" data-id=4></div>
-        <div class="col-md-2" id="f" data-id=5></div>
-    </div>
-</div>
- -->
